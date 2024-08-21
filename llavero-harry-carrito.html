@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utopic word</title>
+    <link rel="stylesheet" href="producto-compra-estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="custon.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <div class="container-customer-support">
+                    </div>
+                </div>
+                <div class="container-logo">
+                    <h1 class="logo"><a href="tienda ni.html">Utopic word</a></h1>
+                </div>
+                <div class="container-user">
+                    <a href="Sing Up.html" class="user-link">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="text">Iniciar sesión</span>
+                    </a>
+                    <a href="carrito.html" class="cart-link">
+                        <i class="fa-solid fa-shop"></i>
+                        <div class="content-shopping-cart">
+                            <span class="text">Carrito de compras</span>
+                            <span class="number">(0)</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container-navbar">
+            <nav class="navbar">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="tienda ni.html">Inicio</a></li>
+                    <li><a href="tienda-productos.html">Productos</a></li>
+                    <li><a href="blog.html">blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <form class="search-form">
+                    <input type="search" placeholder="buscar...">
+                    <button class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </nav>
+        </div>
+        <div class="container-titlee">LLavero de goma Harry Potter </div>
+        
+        <main>
+            <div class="container-imgg">
+                <img src="llavero de goma-harry.png" alt="">
+            </div>
+            <div class="container-info-producto">
+                <div class="container-precio">
+                    <span>$xx</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="container-add-cart" data-product-id="1">
+                    <div class="container-quantily">
+                        <input type="number" name="LLaveros" id="LLaveros" placeholder="1" value="1" min="1" class="input-quantity"/>
+                        <div class="btn-increment-decrement">
+                            <i class="fa-solid fa-chevron-up" onclick="incrementQuantity('pulsera')"></i>
+                            <i class="fa-solid fa-chevron-down" onclick="decrementQuantity('pulsera')"></i>
+                        </div>
+                    </div>
+                    <button class="btn-add-to-cart" onclick="addToCart('Pulsera', 20.0, 1)">
+                        <i class="fa-solid fa-plus"></i>
+                        Añadir al carrito
+                    </button>
+                </div>
+                <div class="container-descripcion">
+                    <div class="titulo-descripcion">
+                        <h4>Descripcion</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="texto-descripcion">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa molestias, expedita error harum est quis sed at. Eaque obcaecati ut natus architecto hic modi suscipit porro quas doloremque, placeat et! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe hic velit temporibus praesentium, harum aliquam reiciendis excepturi perferendis tempora qui facere laudantium et quibusdam aut, necessitatibus provident magnam cum? Consectetur!</p>
+                    </div>
+                </div>
+                <div class="container-adicional-informacion">
+                    <div class="titulo-adicional-informacion">
+                        <h4>Reseñas</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="texto-adicional-informacion">
+                        <p>------------------------------------------</p>
+                    </div>
+                </div>
+                <div class="container-reviews">
+                    <div class="titulo-reviews">
+                        <h4>Informacion Adicional</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="texto-reviews">
+                        <p>------------------------------------------</p>
+                    </div>
+                </div>
+                <div class="container-sociales">
+                    <span>Compartir</span>
+                    <div class="container-buttons-social">
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="container-relacionados">
+            <h2>Productos relacionados</h2>
+            <div class="card-list-products">
+                <div class="card">
+                    <a href="producto-compra.html">
+                        <div class="card-img">
+                            <img src="muñecos.jpg" alt="producto-1">
+                        </div>
+                        <div class="info-card">
+                            <div class="texto-producto">
+                                <h3>LLaveros</h3>
+                                <p class="category">si si si, si si si</p>
+                                <div class="price">$xx</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Repeat .card block for more products -->
+                <div class="card">
+                    <a href="producto-compra.html">
+                        <div class="card-img">
+                            <img src="muñecos.jpg" alt="producto-1">
+                        </div>
+                        <div class="info-card">
+                            <div class="texto-producto">
+                                <h3>LLaveros</h3>
+                                <p class="category">si si si, si si si</p>
+                                <div class="price">$xx</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="producto-compra.html">
+                        <div class="card-img">
+                            <img src="muñecos.jpg" alt="producto-1">
+                        </div>
+                        <div class="info-card">
+                            <div class="texto-producto">
+                                <h3>LLaveros</h3>
+                                <p class="category">si si si, si si si</p>
+                                <div class="price">$xx</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="producto-compra.html">
+                        <div class="card-img">
+                            <img src="muñecos.jpg" alt="producto-1">
+                        </div>
+                        <div class="info-card">
+                            <div class="texto-producto">
+                                <h3>The last of us </h3>
+                                <p class="category">Pulsera de Ellie.</p>
+                                <div class="price">$5000</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="producto-compra.html">
+                        <div class="card-img">
+                            <img src="muñecos.jpg" alt="producto-1">
+                        </div>
+                        <div class="info-card">
+                            <div class="texto-producto">
+                                <h3>Muñecos de Joel y Ellie </h3>
+                                <p class="category">The last of us </p>
+                                <div class="price">$9000</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="producto-compra.html">
+                        <div class="card-img">
+                            <img src="muñecos.jpg" alt="producto-1">
+                        </div>
+                        <div class="info-card">
+                            <div class="texto-producto">
+                                <h3>Muñecos de Joel y Ellie </h3>
+                                <p class="category">The last of us </p>
+                                <div class="price">$9000</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </header>
+    <script>
+        function addToCart(nombreProducto, precioProducto, cantidadProducto) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const existingProductIndex = carrito.findIndex(product => product.nombre === nombreProducto);
+
+            if (existingProductIndex !== -1) {
+                carrito[existingProductIndex].cantidad += cantidadProducto;
+            } else {
+                carrito.push({ nombre: nombreProducto, precio: precioProducto, cantidad: cantidadProducto });
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const carritoIcon = document.querySelector('.content-shopping-cart .number');
+            carritoIcon.innerText = `(${carrito.length})`;
+        }
+
+        document.addEventListener('DOMContentLoaded', actualizarCarrito);
+    </script>
+</body>
+</html>

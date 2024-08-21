@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Carrito de Compras</title>
+        <link rel="stylesheet" href="carrito-estilo.css">
+    </head>
+    <body>
+        <header>
+            <header>
+                <div class="container-hero">
+                    <div class="container hero">
+                        <div class="customer-support">
+                            <div class="container-customer-support">
+                            </div>
+                        </div>
+                        <div class="container-logo">
+                            <h1 class="logo"><a href="tienda_ni.html">Utopic word</a></h1>
+                        </div>
+                        <div class="container-user">
+                            <a href="Sing Up.html" class="user-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span class="text">Iniciar sesión</span>
+                            </a>
+                            <a href="carrito.html" class="cart-link">
+                                <i class="fa-solid fa-shop"></i>
+                                <div class="content-shopping-cart">
+                                    <span class="text">Carrito de compras</span>
+                                    <span class="number">(0)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="container-navbar">
+                    <nav class="navbar">
+                        <i class="fa-solid fa-bars"></i>
+                        <ul class="menu">
+                            <li><a href="tienda ni.html">Inicio</a></li>
+                            <li><a href="tienda-productos.html">Productos</a></li>
+                            <li><a href="blog.html">blog</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                        <form class="search-form">
+                            <input type="search" placeholder="buscar...">
+                            <button class="btn-search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </nav>
+                </div>
+            </header>
+        
+        <main class="main-content">
+            <div class="carrito">
+                <h2>Carrito</h2>
+                <div class="items-carrito" id="items-carrito"></div>
+                <div class="total-carrito">
+                    <p>Total: $<span id="total">0.00</span></p>
+                </div>
+                <button class="btn-comprar">Comprar</button>
+                <button class="btn-limpiar-carrito" onclick="clearCart()">Limpiar Carrito</button>
+            </div>
+        
+            <section class="container container-features">
+                <div class="card-features">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div class="feature-content">
+                        <span>Envío a todo el país</span>
+                        <p>Días hábiles. Lunes a Viernes</p>
+                    </div>
+                </div>
+        
+                <div class="card-features">
+                    <i class="fa-regular fa-clock"></i>
+                    <div class="feature-content">
+                        <span>Horarios</span>
+                        <p>08HS-18HS</p>
+                    </div>
+                </div>
+        
+                <div class="card-features">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="feature-content">
+                        <span>Soporte</span>
+                        <p>+54 9 11 6054-3448</p>
+                    </div>
+                </div>
+        
+                <div class="card-features">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div class="feature-content">
+                        <span>Método de envío</span>
+                        <p>Correo Argentino</p>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="envio" id="envio-section">
+                <div class="envio-direccion">
+                    <h2>Envío</h2>
+                    <span>Indique la dirección del envío o su correo más cercano</span>
+                    <button class="btn-editar-direccion-de-envio" id="btn-editar-envio">
+                        EDITAR DIRECCIÓN DE ENVÍO
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+                    <div class="form-container" id="form-container">
+                        <form method="get">
+                            <label>
+                                Nombre:
+                                <input name="submitted-name" autocomplete="name" />
+                            </label>
+                        </form>
+    
+                        <form method="post">
+                            <label>
+                                Apellido:
+                                <input name="submitted-name" autocomplete="name" />
+                            </label>
+                        </form>
+    
+                        <form method="get">
+                            <label>
+                                Calle:
+                                <input name="submitted-name" autocomplete="name" />
+                            </label>
+                        </form>
+    
+                        <form method="get">
+                            <label>
+                                Altura:
+                                <input name="submitted-name" autocomplete="name" />
+                            </label>
+                        </form>
+    
+                        <form method="get">
+                            <label>
+                                Código Postal:
+                                <input name="submitted-name" autocomplete="name" />
+                            </label>
+                        </form>
+    
+                        <form method="get">
+                            <label>
+                                Teléfono de contacto:
+                                <input name="submitted-name" autocomplete="name" />
+                            </label>
+                        </form>
+                        <button type="submit">Guardar</button>
+                    </div>
+                    <div class="precio-envio">Correo Argentino</div>
+                </div>
+            </section>
+    
+            <section class="metodo-de-pago">
+                <div class="pago">
+                    <h3>Metodo de pago</h3>
+                    <div class="transferencia">
+                        <div class="debito-credito">
+    
+                            <input type="checkbox" name="transferencia" value="1" checked>Transferencia
+    
+                            <br>
+                            
+                            <input type="checkbox" name="debito" value="2">Mercadopago- Tarjetas Online, PagoFacil, Rapipago
+                            
+                            <br>
+                        </div>
+                    </div>
+                    <p class="importante">La cuenta desde la que transfiere debe coincidir con tu cuenta de facturacion</p>
+                    <p class="Enviar-fac">Enviar comprobante a traves del mail Rulitos23@gmail.com</p>
+                </div>
+            </section>
+
+
+            <section class="terminos-y-condiciones envio">
+                <div class="envio-direccion">
+                    <input type="checkbox" id="terminos-checkbox" name="terminos" value="1">
+                    <label for="terminos-checkbox">Al comprar, acepta los <a href="#" class="terminos">términos y condiciones</a></label>
+                </div>
+            </section>
+        </main>
+        
+        <script>
+            function actualizarCarrito() {
+                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                const itemsCarrito = document.getElementById('items-carrito');
+                const totalElement = document.getElementById('total');
+                itemsCarrito.innerHTML = '';
+                let total = 0;
+    
+                carrito.forEach(product => {
+                    const item = document.createElement('div');
+                    item.className = 'item-carrito';
+                    item.innerHTML = `
+                        <p>${product.nombre}</p>
+                        <p>$${product.precio.toFixed(2)} x ${product.cantidad}</p>
+                        <p>$${(product.precio * product.cantidad).toFixed(2)}</p>
+                    `;
+                    itemsCarrito.appendChild(item);
+                    total += product.precio * product.cantidad;
+                });
+    
+                totalElement.innerText = total.toFixed(2);
+                document.querySelector('.content-shopping-cart .number').innerText = `(${carrito.length})`;
+            }
+    
+            function clearCart() {
+                localStorage.removeItem('carrito');
+                actualizarCarrito();
+            }
+    
+            function toggleFormContainer() {
+            const formContainer = document.getElementById('form-container');
+            if (formContainer) {
+                formContainer.classList.toggle('open');
+            }
+        }
+
+        function guardarDireccion() {
+            // Aquí puedes agregar la lógica para guardar la dirección
+            // Por ahora, solo cerramos el formulario después de guardar
+            toggleFormContainer();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarCarrito();
+            const editButton = document.getElementById('btn-editar-envio');
+            if (editButton) {
+                editButton.addEventListener('click', toggleFormContainer);
+            } else {
+                console.log("Edit button not found");
+            }
+        });
+    </script>
+
+<footer class="footer">
+    <div class="container container-footer">
+        <div class="menu-footer">
+            <div class="contact-info">
+                <p class="title-footer">Informacion de Contacto</p>
+                <ul>
+                    <li>Direccion</li>
+                    <li>Telefono</li>
+                    <li>Email</li>
+                </ul>
+                <div class="redes-sociales">
+                    <a href="https://x.com/nicol3_klein" target="_blank" class="twitter">
+                        <span><i class="fa-brands fa-twitter"></i></span>
+                    </a>
+                    <a href="https://www.instagram.com/nicolee_klein/?igsh=MWdkZmwwbTdncG1keQ%3D%3D" target="_blank" class="instagram">
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                    </a>
+                    <a href="https://www.tiktok.com/@nicolee_klein" target="_blank" class="tiktok">
+                        <span><i class="fa-brands fa-tiktok"></i></span>
+                    </a>
+                    <a href="https://www.facebook.com/?locale=es_LA" target="_blank" class="facebook">
+                        <span><i class="fa-brands fa-facebook"></i></span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="information">
+                <p class="title-footer">Utopic word</p>
+                <ul>
+                    <li><a href="Inicio">Inicio</a></li>
+                    <li><a href="tienda-productos.html">Productos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="my-account">
+                <p class="title-footer">Contacto</p>
+                <ul>
+                    <li>+54 9 11 6054-3448</li>
+                    <li>Rulitos23@gmail.com</li>
+                    <li><a href="blog.html">Visita nuestro blog</a></li>
+                </ul>
+            </div>
+
+            <div class="copyright">
+                <p>Desarrollado por adm &copysr; 2024</p>
+
+                <img src="" alt="">
+            </div>
+        </div>
+
+    </div>
+</footer>
+        </body>
+        </html>

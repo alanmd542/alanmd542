@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utopic word</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <header>
+            <header>
+                <div class="container-hero">
+                    <div class="container hero">
+                        <div class="customer-support">
+                            <div class="container-customer-support">
+                            </div>
+                        </div>
+                        <div class="container-logo">
+                            <h1 class="logo"><a href="tienda ni.html">Utopic word</a></h1>
+                        </div>
+                        <div class="container-user">
+                            <a href="Sing Up.html" class="user-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span class="text">Iniciar sesión</span>
+                            </a>
+                            <a href="carrito.html" class="cart-link">
+                                <i class="fa-solid fa-shop"></i>
+                                <div class="content-shopping-cart">
+                                    <span class="text">Carrito de compras</span>
+                                    <span class="number">(0)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="container-navbar">
+                    <nav class="navbar">
+                        <i class="fa-solid fa-bars"></i>
+                        <ul class="menu">
+                            <li><a href="tienda ni.html">Inicio</a></li>
+                            <li><a href="tienda-productos.html">Productos</a></li>
+                            <li><a href="blog.html">blog</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                        <form class="search-form">
+                            <input type="search" placeholder="buscar...">
+                            <button class="btn-search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </nav>
+                </div>
+            </header>
+
+        <main class="main-content">
+            <section class="container container-features">
+                <div class="card-features">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div class="feature-content">
+                        <span>Envio a todo el pais</span>
+                        <p>Dias habiles. Lunes a Viernes</p>
+                    </div>
+                </div>
+
+                <div class="card-features">
+                    <i class="fa-regular fa-clock"></i>
+                    <div class="feature-content">
+                        <span>Horarios</span>
+                        <p>08HS-18HS</p>
+                    </div>
+                </div>
+
+                <div class="card-features">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="feature-content">
+                        <span>Soporte</span>
+                        <p>+54 9 11 6054-3448</p>
+                    </div>
+                </div>
+
+                <div class="card-features">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div class="feature-content">
+                        <span>Metodo de envio</span>
+                        <p>Correo Argentino</p>
+                    </div>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+                
+                        addToCartButtons.forEach(button => {
+                            button.addEventListener('click', () => {
+                                const productCard = button.closest('.container-info-producto');
+                                const productId = productCard.dataset.productId;
+                                const quantity = parseInt(productCard.querySelector('.input-quantity').value);
+                
+                                // Construir el objeto del producto
+                                const product = {
+                                    id: productId,
+                                    quantity: quantity
+                                    // Agregar más propiedades según sea necesario
+                                };
+                
+                                // Obtener el carrito existente desde localStorage o crear uno nuevo
+                                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                                // Verificar si el producto ya existe en el carrito
+                                const existingProductIndex = cart.findIndex(item => item.id === productId);
+                
+                                if (existingProductIndex !== -1) {
+                                    // Si el producto ya existe, actualizar su cantidad
+                                    cart[existingProductIndex].quantity += quantity;
+                                } else {
+                                    // Si el producto no existe, añadirlo al carrito
+                                    cart.push(product);
+                                }
+                
+                                // Actualizar el carrito en localStorage con los nuevos datos
+                                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                                // Actualizar la información del carrito en el encabezado
+                                updateCartInfo();
+                            });
+                        });
+                
+                        function updateCartInfo() {
+                            const cartInfo = document.querySelector('.content-shopping-cart .number');
+                            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            const totalItems = cart.reduce((acc, product) => acc + product.quantity, 0);
+                            cartInfo.textContent = `(${totalItems})`;
+                        }
+                
+                        // Llama a updateCartInfo al cargar la página para mostrar el número inicial de ítems
+                        updateCartInfo();
+                    });
+                </script>
+            </section>
+
+
+            <section class="container top-products">
+                <div class="container-products" id="destacados">
+                    <!-- Productos iniciales (por ejemplo, 10 productos) -->
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="varita-harry-carrito.html">
+                                <img src="varita-harrypooter.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>Varita de Harry Potter</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+                    <!-- Más productos iniciales... -->
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="mapa-del-merodeador-carrito.html">
+                                <img src="mapa.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>Mapa del merodeador- Harry Potter</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="medias-harry-potter-carrito.html">
+                                <img src="medias.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>Medias de Harry Potter</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="botella-carrito.html">
+                                <img src="botella-straw-top-hp1-de614e4feb477a67e716706080328936-480-0.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>Botella de Harry Potter</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-harry-carrito.html">
+                                <img src="llavero de goma-harry.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Harry Potter</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-dobby-carrito.html">
+                                <img src="llavero de goma-dobby.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Dobby</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-harry-quidicht.html">
+                                <img src="llavero de goma- harry quidich.png" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Harry Potter Quiditch</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-hermione-carrito.html">
+                                <img src="collares.jpg" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Hermione Granger</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-Rond-carrito.html">
+                                <img src="collares.jpg" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Rond Weasley</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-lord-carrito.html">
+                                <img src="collares.jpg" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Lord Voldemort</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-draco-carrito.html">
+                                <img src="collares.jpg" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Draco Malfoy</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                    <div class="card-product">
+                        <div class="container-img">
+                            <a href="llavero-titan-de-ataque-carrito.html">
+                                <img src="collares.jpg" alt="">
+                                <div class="button-group">
+                                    <span>
+                                        <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-code-compare"></i>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content-card-product">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h3>LLavero de goma-Titan de Ataque</h3>
+                            <span class="add-cart">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </span>
+                            <p class="price">$$</p>
+                        </div>
+                    </div>
+
+                            </div>
+                            </section>
+
+                            <section class="container top-products">
+                                <h1 class="heading-1">Mas Productos</h1>
+                            
+                                <div class="container-options">
+                                    <a href="tienda-productos.html" class="button button-primary active">1</a>
+                                    <a href="pagina-2.html" class="button button-primary">2</a>
+                                    <a href="pagina-3.html" class="button button-primary">3</a>
+                                </div>
+                            </section>
+
+            
+
+
+
+<script>
+
+document.querySelectorAll('.container-options span').forEach(option => {
+            option.addEventListener('click', () => {
+                // Remover la clase activa de todas las opciones
+                document.querySelectorAll('.container-options span').forEach(span => span.classList.remove('active'));
+                // Agregar la clase activa a la opción seleccionada
+                option.classList.add('active');
+                // Ocultar todos los contenedores de productos
+                document.querySelectorAll('.container-products').forEach(container => container.classList.add('hidden'));
+                // Mostrar el contenedor de productos correspondiente a la categoría seleccionada
+                const category = option.getAttribute('data-category');
+                document.getElementById(category).classList.remove('hidden');
+            });
+        });;
+
+                document.querySelectorAll('.container-options span').forEach(option => {
+                    option.addEventListener('click', () => {
+                        document.querySelectorAll('.container-options span').forEach(span => span.classList.remove('active'));
+                        option.classList.add('active');
+                
+                        document.querySelectorAll('.container-products').forEach(container => container.style.display = 'none');
+                        const category = option.getAttribute('data-category');
+                        console.log('Selected category:', category); // Añade esta línea para debug
+                        document.getElementById(category).style.display = 'flex';
+                    });
+                });
+            </script>
+        </main>
+
+
+        
+
+        <footer class="footer">
+            <div class="container container-footer">
+                <div class="menu-footer">
+                    <div class="contact-info">
+                        <p class="title-footer">Informacion de Contacto</p>
+                        <ul>
+                            <li>Direccion</li>
+                            <li>Telefono</li>
+                            <li>Email</li>
+                        </ul>
+                        <div class="redes-sociales">
+                            <a href="https://x.com/nicol3_klein" target="_blank" class="twitter">
+                                <span><i class="fa-brands fa-twitter"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/nicolee_klein/?igsh=MWdkZmwwbTdncG1keQ%3D%3D" target="_blank" class="instagram">
+                                <span><i class="fa-brands fa-instagram"></i></span>
+                            </a>
+                            <a href="https://www.tiktok.com/@nicolee_klein" target="_blank" class="tiktok">
+                                <span><i class="fa-brands fa-tiktok"></i></span>
+                            </a>
+                            <a href="https://www.facebook.com/?locale=es_LA" target="_blank" class="facebook">
+                                <span><i class="fa-brands fa-facebook"></i></span>
+                            </a>
+                        </div>
+        
+                    </div>
+        
+                    <div class="information">
+                        <p class="title-footer">Utopic word</p>
+                        <ul>
+                            <li><a href="Inicio">Inicio</a></li>
+                            <li><a href="tienda-productos.html">Productos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="my-account">
+                        <p class="title-footer">Contacto</p>
+                        <ul>
+                            <li>+54 9 11 6054-3448</li>
+                            <li>Rulitos23@gmail.com</li>
+                            <li><a href="blog.html">Visita nuestro blog</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="copyright">
+                        <p>Desarrollado por adm &copysr; 2024</p>
+        
+                        <img src="" alt="">
+                    </div>
+                </div>
+        
+            </div>
+        </footer>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo-sing-up.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="signUpForm">
+                <h1>Crear Cuenta</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fab fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                </div>
+                <span>O utiliza tu correo para registrarte</span>
+                <input type="text" placeholder="Usuario" id="username" required>
+                <input type="email" placeholder="Email" id="email" required>
+                <input type="password" placeholder="Contraseña" id="password" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="signInForm">
+                <h1>Iniciar Sesión</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fab fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                </div>
+                <span>O utiliza tu cuenta</span>
+                <input type="email" placeholder="Email" id="loginEmail" required>
+                <input type="password" placeholder="Contraseña" id="loginPassword" required>
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h2>¡Bienvenido!</h2>
+                    <p>Para mantenerte conectado, inicia sesión con tu información personal</p>
+                    <button class="hidden" id="signIn">Iniciar Sesión</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h2>Hola, amigo!</h2>
+                    <p>Regístrate con tus datos personales y empieza tu viaje con nosotros</p>
+                    <button class="hidden" id="signUp">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const signInButton = document.getElementById('signIn');
+        const signUpButton = document.getElementById('signUp');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add('active');
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove('active');
+        });
+
+        document.getElementById('signUpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, email, password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = `home.html?username=${username}`;
+                } else {
+                    response.text().then(text => alert(text));
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('signInForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = `home.html?username=${email}`;
+                } else {
+                    response.text().then(text => alert(text));
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
